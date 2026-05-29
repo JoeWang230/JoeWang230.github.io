@@ -123,21 +123,14 @@ h1 {
 .links-row a { color: var(--accent); }
 .sep { color: var(--muted); margin: 0 0.4rem; }
 
-/* Photo placeholder */
-.photo-placeholder {
+/* Profile photo */
+.profile-photo {
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  background: #d8e4f0;
+  object-fit: cover;
   border: 1px solid var(--rule);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--sans);
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--accent);
-  letter-spacing: 0.05em;
+  display: block;
   margin: 1rem auto 0;
 }
 
@@ -343,7 +336,7 @@ footer {
 
   .about-grid { grid-template-columns: 1fr; }
   .about-photo { order: -1; }
-  .photo-placeholder { width: 120px; height: 120px; font-size: 1.5rem; }
+  .profile-photo { width: 120px; height: 120px; }
 
   .research-grid { grid-template-columns: 1fr; }
   .two-col { grid-template-columns: 1fr; gap: 2rem; }
