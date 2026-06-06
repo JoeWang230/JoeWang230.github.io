@@ -278,6 +278,29 @@ h2 {
 .talk-body { font-size: 0.9rem; line-height: 1.6; }
 .talk-title { font-weight: 600; display: inline; }
 
+/* ── News ─────────────────────────────────────────────────────── */
+.news-list { list-style: none; padding: 0; margin: 0; }
+
+.news-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 0.5rem 1.5rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.news-item:first-child { border-top: 1px solid var(--rule); }
+
+.news-date {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--muted);
+  padding-top: 0.15rem;
+  white-space: nowrap;
+}
+
+.news-body { font-size: 0.9rem; line-height: 1.6; }
+
 /* ── Education ────────────────────────────────────────────────── */
 .edu-list {
   list-style: none;
@@ -344,4 +367,5 @@ footer {
 
   .talk-item { grid-template-columns: 75px 1fr; }
   .project-item { grid-template-columns: 70px 1fr; }
+  .news-item { grid-template-columns: 1fr; }
 }
