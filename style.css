@@ -44,7 +44,7 @@ h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; line-height: 1.25;
 }
 
 section { padding: 4.5rem 0; }
-section:nth-child(even) { background: var(--bg-alt); }
+#education { background: var(--bg-alt); }
 
 /* ── Navigation ───────────────────────────────────────────────── */
 #navbar {
