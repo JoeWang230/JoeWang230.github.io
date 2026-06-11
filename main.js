@@ -4,7 +4,7 @@
   document.querySelectorAll('.nav-links a').forEach(function (a) {
     var href = a.getAttribute('href').split('/').pop();
     if (href === navPage) {
-      a.style.color = 'var(--accent)';
+      a.classList.add('active');
     }
   });
 })();
