@@ -420,15 +420,31 @@ footer {
 @media (max-width: 680px) {
   html { font-size: 16px; }
 
-  .about-grid { grid-template-columns: 1fr; }
-  .about-photo { order: -1; }
-  .profile-photo { width: 120px; height: 120px; }
+  /* Tighter section spacing */
+  section { padding: 3rem 0; }
+  #about { padding-top: 2.5rem; padding-bottom: 3rem; }
 
+  /* Nav wraps to 2 rows: name on top, links below */
+  #navbar { height: auto; min-height: var(--nav-h); }
+  .nav-inner { flex-wrap: wrap; padding: 0.7rem 1.5rem; gap: 0.35rem; height: auto; }
+  .nav-links { gap: 0.85rem; font-size: 0.72rem; width: 100%; }
+
+  /* About stacked */
+  .about-grid { grid-template-columns: 1fr; }
+  .about-photo { order: -1; text-align: center; }
+  .profile-photo { width: 110px; height: 110px; margin: 0 auto 1.5rem; }
+  h1 { font-size: 1.9rem; }
+
+  /* Links row wraps gracefully */
+  .links-row { line-height: 2.2; }
+
+  /* Grids collapse */
   .research-grid { grid-template-columns: 1fr; }
   .two-col { grid-template-columns: 1fr; gap: 2rem; }
-  .nav-links { gap: 1rem; font-size: 0.75rem; }
 
+  /* List item columns tighten */
   .talk-item { grid-template-columns: 75px 1fr; }
-  .project-item { grid-template-columns: 70px 1fr; }
+  .project-item { grid-template-columns: 65px 1fr; }
+  .edu-item { grid-template-columns: 65px 1fr; }
   .news-link { grid-template-columns: 1fr; }
 }
