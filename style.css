@@ -2,18 +2,42 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --ink:    #141414;
-  --mid:    #505050;
-  --muted:  #909090;
-  --rule:   #e2e2de;
-  --accent:  #1a4480;
-  --accent2: #8a5a34;
-  --bg:     #ffffff;
-  --bg-alt: #f7f7f5;
+  --ink:       #141414;
+  --mid:       #505050;
+  --muted:     #909090;
+  --rule:      #e2e2de;
+  --accent:    #1a4480;
+  --accent2:   #8a5a34;
+  --bg:        #ffffff;
+  --bg-alt:    #f7f7f5;
+  --text:      #282828;
+  --text-soft: #333333;
+  --card-bg:   #fafaf8;
+  --shadow:    0 2px 20px rgba(0,0,0,0.10);
+  --shadow-hover: 0 4px 20px rgba(0,0,0,0.07);
+  --nav-bg:    rgba(255,255,255,0.96);
   --nav-h:  60px;
   --max-w:  860px;
   --serif:  'EB Garamond', Georgia, serif;
   --sans:   'Source Sans 3', system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink:       #ece9e2;
+    --mid:       #b7b2a7;
+    --muted:     #837e73;
+    --rule:      #2d2c28;
+    --accent:    #6f9bdb;
+    --bg:        #121110;
+    --bg-alt:    #1a1917;
+    --text:      #d8d4cb;
+    --text-soft: #c9c5bb;
+    --card-bg:   #1c1b18;
+    --shadow:    0 2px 24px rgba(0,0,0,0.55);
+    --shadow-hover: 0 4px 24px rgba(0,0,0,0.5);
+    --nav-bg:    rgba(18,17,16,0.92);
+  }
 }
 
 html { scroll-behavior: smooth; font-size: 18px; }
@@ -54,7 +78,7 @@ section { padding: 4.5rem 0; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255,255,255,0.96);
+  background: var(--nav-bg);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--rule);
@@ -146,7 +170,7 @@ h1 {
   font-weight: 500;
 }
 
-.bio { margin-bottom: 1.1rem; color: #282828; font-variant-numeric: oldstyle-nums; }
+.bio { margin-bottom: 1.1rem; color: var(--text); font-variant-numeric: oldstyle-nums; }
 
 .links-row {
   margin-top: 1.5rem;
@@ -163,7 +187,7 @@ h1 {
   height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 2px 20px rgba(0,0,0,0.10);
+  box-shadow: var(--shadow);
   display: block;
   margin: 1rem auto 0;
 }
@@ -203,12 +227,12 @@ h2 {
   border-left: 3px solid var(--accent);
   padding: 1.1rem 1.3rem;
   border-radius: 0 5px 5px 0;
-  background: #fafaf8;
+  background: var(--card-bg);
   transition: box-shadow .2s ease, transform .2s ease;
 }
 
 .research-card:hover {
-  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  box-shadow: var(--shadow-hover);
   transform: translateY(-2px);
 }
 
@@ -408,7 +432,7 @@ h2 {
   border-bottom: 2px solid var(--accent);
 }
 
-#article p { margin-bottom: 1rem; color: #282828; font-size: 0.95rem; line-height: 1.75; font-variant-numeric: oldstyle-nums; }
+#article p { margin-bottom: 1rem; color: var(--text); font-size: 0.95rem; line-height: 1.75; font-variant-numeric: oldstyle-nums; }
 
 /* ── Education ────────────────────────────────────────────────── */
 .edu-list {
@@ -456,10 +480,10 @@ h2 {
   margin-bottom: 0.3rem;
 }
 
-.skills-block p { font-size: 0.9rem; color: #333; line-height: 1.55; font-variant-numeric: oldstyle-nums; }
+.skills-block p { font-size: 0.9rem; color: var(--text-soft); line-height: 1.55; font-variant-numeric: oldstyle-nums; }
 
 /* ── Contact ──────────────────────────────────────────────────── */
-#contact p { margin-bottom: 0.6rem; font-size: 0.95rem; color: #333; font-variant-numeric: oldstyle-nums; }
+#contact p { margin-bottom: 0.6rem; font-size: 0.95rem; color: var(--text-soft); font-variant-numeric: oldstyle-nums; }
 
 /* ── Footer ───────────────────────────────────────────────────── */
 footer {
@@ -479,6 +503,15 @@ footer .visit-count {
 footer .visit-count img {
   height: 34px;
   opacity: 0.8;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* The GoatCounter badge is a light SVG we don't control; blend it in
+     rather than let it sit as a stark white box on the dark page. */
+  footer .visit-count img {
+    opacity: 0.65;
+    mix-blend-mode: luminosity;
+  }
 }
 
 /* ── Responsive ───────────────────────────────────────────────── */
