@@ -416,6 +416,15 @@ footer {
   letter-spacing: 0.02em;
 }
 
+footer .visit-count {
+  margin-top: 0.6rem;
+}
+
+footer .visit-count img {
+  height: 34px;
+  opacity: 0.8;
+}
+
 /* ── Responsive ───────────────────────────────────────────────── */
 @media (max-width: 680px) {
   html { font-size: 16px; }
