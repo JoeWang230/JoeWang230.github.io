@@ -124,7 +124,7 @@ h1 {
   font-weight: 500;
 }
 
-.bio { margin-bottom: 1.1rem; color: #282828; }
+.bio { margin-bottom: 1.1rem; color: #282828; font-variant-numeric: oldstyle-nums; }
 
 .links-row {
   margin-top: 1.5rem;
@@ -200,6 +200,7 @@ h2 {
   font-size: 0.88rem;
   color: var(--mid);
   line-height: 1.6;
+  font-variant-numeric: oldstyle-nums;
 }
 
 /* ── Project List ─────────────────────────────────────────────── */
@@ -228,6 +229,7 @@ h2 {
   font-size: 0.88rem;
   color: var(--mid);
   line-height: 1.6;
+  font-variant-numeric: oldstyle-nums;
 }
 
 /* ── Publications ─────────────────────────────────────────────── */
@@ -246,6 +248,7 @@ h2 {
   display: block;
   font-size: 0.95rem;
   margin: 0.1rem 0;
+  font-variant-numeric: oldstyle-nums;
 }
 .pub-venue {
   font-family: var(--sans);
@@ -294,10 +297,12 @@ h2 {
   color: var(--muted);
 }
 
-.talk-body { font-size: 0.9rem; line-height: 1.6; }
+.talk-body { font-size: 0.9rem; line-height: 1.6; font-variant-numeric: oldstyle-nums; }
 .talk-title { font-weight: 600; display: inline; }
 
 /* ── News list ────────────────────────────────────────────────── */
+/* Timeline motif: a node per entry connected by a running line, echoing
+   the kinetics/age-hardening curves this news is largely reporting on. */
 .news-list { list-style: none; padding: 0; margin: 0; }
 
 .news-item { border-bottom: 1px solid var(--rule); }
@@ -305,8 +310,8 @@ h2 {
 
 .news-link {
   display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 0.5rem 1.5rem;
+  grid-template-columns: 80px 18px 1fr;
+  column-gap: 1rem;
   padding: 0.9rem 0.6rem;
   margin: 0 -0.6rem;
   color: inherit;
@@ -323,9 +328,38 @@ h2 {
   color: var(--muted);
   padding-top: 0.15rem;
   white-space: nowrap;
+  font-variant-numeric: lining-nums;
 }
 
-.news-body { font-size: 0.9rem; line-height: 1.6; }
+.news-node { position: relative; }
+
+.news-node::before {
+  content: '';
+  position: absolute;
+  top: 0.35rem;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.news-node::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: -1px;
+  left: 50%;
+  width: 1px;
+  background: var(--rule);
+  transform: translateX(-50%);
+}
+
+.news-item:last-child .news-node::after { display: none; }
+
+.news-body { font-size: 0.9rem; line-height: 1.6; font-variant-numeric: oldstyle-nums; }
 
 /* ── News article page ────────────────────────────────────────── */
 .news-back {
@@ -352,7 +386,7 @@ h2 {
   border-bottom: 2px solid var(--accent);
 }
 
-#article p { margin-bottom: 1rem; color: #282828; font-size: 0.95rem; line-height: 1.75; }
+#article p { margin-bottom: 1rem; color: #282828; font-size: 0.95rem; line-height: 1.75; font-variant-numeric: oldstyle-nums; }
 
 /* ── Education ────────────────────────────────────────────────── */
 .edu-list {
@@ -400,10 +434,10 @@ h2 {
   margin-bottom: 0.3rem;
 }
 
-.skills-block p { font-size: 0.9rem; color: #333; line-height: 1.55; }
+.skills-block p { font-size: 0.9rem; color: #333; line-height: 1.55; font-variant-numeric: oldstyle-nums; }
 
 /* ── Contact ──────────────────────────────────────────────────── */
-#contact p { margin-bottom: 0.6rem; font-size: 0.95rem; color: #333; }
+#contact p { margin-bottom: 0.6rem; font-size: 0.95rem; color: #333; font-variant-numeric: oldstyle-nums; }
 
 /* ── Footer ───────────────────────────────────────────────────── */
 footer {
@@ -456,4 +490,5 @@ footer .visit-count img {
   .project-item { grid-template-columns: 65px 1fr; }
   .edu-item { grid-template-columns: 65px 1fr; }
   .news-link { grid-template-columns: 1fr; }
+  .news-node { display: none; }
 }
