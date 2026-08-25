@@ -2,17 +2,42 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --ink:    #141414;
-  --mid:    #505050;
-  --muted:  #909090;
-  --rule:   #e2e2de;
-  --accent: #1a4480;
-  --bg:     #ffffff;
-  --bg-alt: #f7f7f5;
+  --ink:       #141414;
+  --mid:       #505050;
+  --muted:     #909090;
+  --rule:      #e2e2de;
+  --accent:    #1a4480;
+  --accent2:   #8a5a34;
+  --bg:        #ffffff;
+  --bg-alt:    #f7f7f5;
+  --text:      #282828;
+  --text-soft: #333333;
+  --card-bg:   #fafaf8;
+  --shadow:    0 2px 20px rgba(0,0,0,0.10);
+  --shadow-hover: 0 4px 20px rgba(0,0,0,0.07);
+  --nav-bg:    rgba(255,255,255,0.96);
   --nav-h:  60px;
   --max-w:  860px;
   --serif:  'EB Garamond', Georgia, serif;
   --sans:   'Source Sans 3', system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink:       #ece9e2;
+    --mid:       #b7b2a7;
+    --muted:     #837e73;
+    --rule:      #2d2c28;
+    --accent:    #6f9bdb;
+    --bg:        #121110;
+    --bg-alt:    #1a1917;
+    --text:      #d8d4cb;
+    --text-soft: #c9c5bb;
+    --card-bg:   #1c1b18;
+    --shadow:    0 2px 24px rgba(0,0,0,0.55);
+    --shadow-hover: 0 4px 24px rgba(0,0,0,0.5);
+    --nav-bg:    rgba(18,17,16,0.92);
+  }
 }
 
 html { scroll-behavior: smooth; font-size: 18px; }
@@ -53,7 +78,7 @@ section { padding: 4.5rem 0; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255,255,255,0.96);
+  background: var(--nav-bg);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--rule);
@@ -100,7 +125,28 @@ section { padding: 4.5rem 0; }
 .nav-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
 
 /* ── About / Hero ─────────────────────────────────────────────── */
-#about { padding-top: 5rem; padding-bottom: 5rem; }
+#about {
+  position: relative;
+  isolation: isolate;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+/* Close-packed dot lattice, after the FCC aluminium matrix this research
+   is about — barely visible, texture rather than decoration. */
+#about::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    radial-gradient(circle, var(--ink) 1px, transparent 1.5px),
+    radial-gradient(circle, var(--ink) 1px, transparent 1.5px);
+  background-size: 34px 34px;
+  background-position: 0 0, 17px 17px;
+  opacity: 0.05;
+  pointer-events: none;
+}
 
 .about-grid {
   display: grid;
@@ -124,7 +170,44 @@ h1 {
   font-weight: 500;
 }
 
-.bio { margin-bottom: 1.1rem; color: #282828; font-variant-numeric: oldstyle-nums; }
+.bio { margin-bottom: 1.1rem; color: var(--text); font-variant-numeric: oldstyle-nums; }
+
+/* On hover, scatter a few dots outward — literally illustrating the
+   solute clustering the phrase names, rather than a generic flourish. */
+.key-term {
+  position: relative;
+  border-bottom: 1px dotted var(--accent2);
+}
+
+.key-term::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--accent2);
+  box-shadow:
+    9px  -7px 0 -0.5px var(--accent2),
+    -10px -4px 0 -0.5px var(--accent2),
+     3px -11px 0 -1px   var(--accent2),
+    -5px  -9px 0 -1px   var(--accent2),
+    13px   2px 0 -1px   var(--accent2);
+  opacity: 0;
+  transform: translate(-50%, 0) scale(0.2);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+
+.key-term:hover::after {
+  opacity: 0.9;
+  transform: translate(-50%, 0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .key-term::after { transition: none; }
+}
 
 .links-row {
   margin-top: 1.5rem;
@@ -141,7 +224,7 @@ h1 {
   height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 2px 20px rgba(0,0,0,0.10);
+  box-shadow: var(--shadow);
   display: block;
   margin: 1rem auto 0;
 }
@@ -181,12 +264,12 @@ h2 {
   border-left: 3px solid var(--accent);
   padding: 1.1rem 1.3rem;
   border-radius: 0 5px 5px 0;
-  background: #fafaf8;
+  background: var(--card-bg);
   transition: box-shadow .2s ease, transform .2s ease;
 }
 
 .research-card:hover {
-  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  box-shadow: var(--shadow-hover);
   transform: translateY(-2px);
 }
 
@@ -285,7 +368,7 @@ h2 {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  background: var(--accent);
+  background: var(--accent2);
   color: #fff;
   padding: 0.18rem 0.5rem;
   border-radius: 3px;
@@ -386,7 +469,7 @@ h2 {
   border-bottom: 2px solid var(--accent);
 }
 
-#article p { margin-bottom: 1rem; color: #282828; font-size: 0.95rem; line-height: 1.75; font-variant-numeric: oldstyle-nums; }
+#article p { margin-bottom: 1rem; color: var(--text); font-size: 0.95rem; line-height: 1.75; font-variant-numeric: oldstyle-nums; }
 
 /* ── Education ────────────────────────────────────────────────── */
 .edu-list {
@@ -434,10 +517,10 @@ h2 {
   margin-bottom: 0.3rem;
 }
 
-.skills-block p { font-size: 0.9rem; color: #333; line-height: 1.55; font-variant-numeric: oldstyle-nums; }
+.skills-block p { font-size: 0.9rem; color: var(--text-soft); line-height: 1.55; font-variant-numeric: oldstyle-nums; }
 
 /* ── Contact ──────────────────────────────────────────────────── */
-#contact p { margin-bottom: 0.6rem; font-size: 0.95rem; color: #333; font-variant-numeric: oldstyle-nums; }
+#contact p { margin-bottom: 0.6rem; font-size: 0.95rem; color: var(--text-soft); font-variant-numeric: oldstyle-nums; }
 
 /* ── Footer ───────────────────────────────────────────────────── */
 footer {
@@ -457,6 +540,15 @@ footer .visit-count {
 footer .visit-count img {
   height: 34px;
   opacity: 0.8;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* The GoatCounter badge is a light SVG we don't control; blend it in
+     rather than let it sit as a stark white box on the dark page. */
+  footer .visit-count img {
+    opacity: 0.65;
+    mix-blend-mode: luminosity;
+  }
 }
 
 /* ── Responsive ───────────────────────────────────────────────── */
