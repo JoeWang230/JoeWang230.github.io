@@ -533,24 +533,6 @@ footer {
   letter-spacing: 0.02em;
 }
 
-footer .visit-count {
-  margin-top: 0.6rem;
-}
-
-footer .visit-count img {
-  height: 34px;
-  opacity: 0.8;
-}
-
-@media (prefers-color-scheme: dark) {
-  /* The GoatCounter badge is a light SVG we don't control; blend it in
-     rather than let it sit as a stark white box on the dark page. */
-  footer .visit-count img {
-    opacity: 0.65;
-    mix-blend-mode: luminosity;
-  }
-}
-
 /* ── Responsive ───────────────────────────────────────────────── */
 @media (max-width: 680px) {
   html { font-size: 16px; }
