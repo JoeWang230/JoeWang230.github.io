@@ -27,6 +27,10 @@ news/               Full article pages for each news entry
   news-YYYY-MM.html
 ```
 
+## Analytics
+
+Every page loads a [GoatCounter](https://www.goatcounter.com) tracking snippet (`https://xuezhouw.goatcounter.com/count`) and shows a site-wide visit badge in the footer (`/counter/TOTAL.svg`). Stats are viewable at `https://xuezhouw.goatcounter.com`. The public counter must stay enabled under GoatCounter Settings → "Allow adding visitor counts on your website" for the footer badge to render.
+
 ## Adding a news entry
 
 1. Create `news/news-YYYY-MM.html` — copy any existing file in `news/` as a template.

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-A single-page static academic personal website for Xuezhou Wang (PhD candidate, computational materials science). No build system, no framework, no dependencies — everything is plain HTML/CSS/JS served directly from the repo root.
+A static academic personal website for Xuezhou Wang (Research Associate in Advanced Materials, King's College London). No build system, no framework, no dependencies — everything is plain HTML/CSS/JS served directly from the repo root.
 
 ## Development
 
@@ -19,18 +19,29 @@ There is no build step, no linting, no test suite.
 
 ## Architecture
 
-All content lives in a single `index.html` with five visible sections rendered in order: **About → Research → Publications → Talks → Education/Skills → Contact**. Navigation is a sticky bar that links to each section by `id`.
+The site is multi-page, one HTML file per section, sharing a common sticky nav bar and footer:
+
+- `index.html` — About + Education & Skills (home page)
+- `research.html` — Research interests and selected projects
+- `publications.html` — Journal publications
+- `talks.html` — Conference presentations
+- `news.html` — News feed, linking out to full articles under `news/`
+- `contact.html` — Contact information
+- `news/news-YYYY-MM.html` — one static article page per news entry
+
+Shared assets:
 
 - `style.css` — all styles. Design tokens (colors, fonts, spacing, max-width) are CSS custom properties on `:root`. Layout uses CSS Grid throughout; responsive breakpoint is at 680 px.
-- `main.js` — one IIFE that highlights the active nav link on scroll using `window.scrollY` against each section's `offsetTop`.
+- `main.js` — one IIFE that marks the nav link matching the current page (`window.location.pathname`) as `.active`; `news-*.html` article pages map back to the `news.html` nav link.
 - `photo.png` — profile photo used in the About section (`<img src="photo.png">`).
+
+Every page footer includes a GoatCounter tracking snippet (`data-goatcounter="https://xuezhouw.goatcounter.com/count"`) and a site-wide visit-count badge (`.visit-count` img, `/counter/TOTAL.svg`).
 
 ## Content update pattern
 
-Content is edited directly in `index.html`. Each major section follows a consistent pattern:
+- **Publications** (`publications.html`) — `<ol class="pub-list">` with `.pub-item` entries containing `.pub-authors`, `.pub-title`, `.pub-venue` spans.
+- **Talks** (`talks.html`) — `<ul class="talk-list">` with `.talk-item` entries using a two-column grid (`.talk-meta` / `.talk-body`).
+- **Research projects** (`research.html`) — `.project-list` with `.project-item` entries using a year + body two-column grid.
+- **News** (`news.html`) — `<ul class="news-list">` with `.news-item` entries, newest first; entries with a full write-up link to `news/news-YYYY-MM.html` (copy an existing file in `news/` as a template), short announcements can omit the `href`.
 
-- **Publications** — `<ol class="pub-list">` with `.pub-item` entries containing `.pub-authors`, `.pub-title`, `.pub-venue` spans.
-- **Talks** — `<ul class="talk-list">` with `.talk-item` entries using a two-column grid (`.talk-meta` / `.talk-body`).
-- **Research projects** — `.project-list` with `.project-item` entries using a year + body two-column grid.
-
-To add a new entry, copy an existing `<li>` within the relevant list and update the text.
+To add a new entry, copy an existing `<li>` within the relevant list and update the text. Every page's footer has a `Last updated` date that should be bumped when its content changes.
