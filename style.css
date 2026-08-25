@@ -172,6 +172,43 @@ h1 {
 
 .bio { margin-bottom: 1.1rem; color: var(--text); font-variant-numeric: oldstyle-nums; }
 
+/* On hover, scatter a few dots outward — literally illustrating the
+   solute clustering the phrase names, rather than a generic flourish. */
+.key-term {
+  position: relative;
+  border-bottom: 1px dotted var(--accent2);
+}
+
+.key-term::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--accent2);
+  box-shadow:
+    9px  -7px 0 -0.5px var(--accent2),
+    -10px -4px 0 -0.5px var(--accent2),
+     3px -11px 0 -1px   var(--accent2),
+    -5px  -9px 0 -1px   var(--accent2),
+    13px   2px 0 -1px   var(--accent2);
+  opacity: 0;
+  transform: translate(-50%, 0) scale(0.2);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+
+.key-term:hover::after {
+  opacity: 0.9;
+  transform: translate(-50%, 0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .key-term::after { transition: none; }
+}
+
 .links-row {
   margin-top: 1.5rem;
   font-family: var(--sans);
