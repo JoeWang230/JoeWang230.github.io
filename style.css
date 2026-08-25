@@ -100,7 +100,28 @@ section { padding: 4.5rem 0; }
 .nav-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
 
 /* ── About / Hero ─────────────────────────────────────────────── */
-#about { padding-top: 5rem; padding-bottom: 5rem; }
+#about {
+  position: relative;
+  isolation: isolate;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+/* Close-packed dot lattice, after the FCC aluminium matrix this research
+   is about — barely visible, texture rather than decoration. */
+#about::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    radial-gradient(circle, var(--ink) 1px, transparent 1.5px),
+    radial-gradient(circle, var(--ink) 1px, transparent 1.5px);
+  background-size: 34px 34px;
+  background-position: 0 0, 17px 17px;
+  opacity: 0.05;
+  pointer-events: none;
+}
 
 .about-grid {
   display: grid;
