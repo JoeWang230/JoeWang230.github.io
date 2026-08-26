@@ -31,8 +31,8 @@ The site is multi-page, one HTML file per section, sharing a common sticky nav b
 
 Shared assets:
 
-- `style.css` — all styles. Design tokens (colors, fonts, spacing, max-width) are CSS custom properties on `:root`. Layout uses CSS Grid throughout; responsive breakpoint is at 680 px.
-- `main.js` — one IIFE that marks the nav link matching the current page (`window.location.pathname`) as `.active`; `news-*.html` article pages map back to the `news.html` nav link.
+- `assets/css/style.css` — all styles. Design tokens (colors, fonts, spacing, max-width) are CSS custom properties on `:root`. Layout uses CSS Grid throughout; responsive breakpoint is at 680 px. Root pages link it as `assets/css/style.css`; `news/*.html` pages use `../assets/css/style.css`.
+- `assets/js/main.js` — one IIFE that marks the nav link matching the current page (`window.location.pathname`) as `.active`; `news-*.html` article pages map back to the `news.html` nav link. Referenced the same way (`assets/js/main.js` from root pages, `../assets/js/main.js` from `news/`).
 - `images/photo.png` — profile photo used in the About section (`<img src="images/photo.png">`). Other loose image assets also live under `images/`.
 
 Every page footer includes a GoatCounter tracking snippet (`data-goatcounter="https://xuezhouw.goatcounter.com/count"`) and a site-wide visit-count badge (`.visit-count` img, `/counter/TOTAL.svg`).

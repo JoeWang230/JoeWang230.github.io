@@ -19,9 +19,9 @@ talks.html          Conference presentations
 news.html           News feed (clickable entries)
 contact.html        Contact information
 
-style.css           All styles (CSS custom properties on :root)
-main.js             Active nav-link highlighting by URL
-photo.png           Profile photo
+assets/css/style.css   All styles (CSS custom properties on :root)
+assets/js/main.js      Active nav-link highlighting by URL
+images/photo.png       Profile photo
 
 news/               Full article pages for each news entry
   news-YYYY-MM.html
