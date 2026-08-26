@@ -1,5 +1,7 @@
 # Personal Website — Xuezhou Wang
 
+[![License: MIT](https://img.shields.io/badge/code%20license-MIT-blue.svg)](LICENSE)
+
 Source for [joewang230.github.io](https://joewang230.github.io). Plain HTML/CSS/JS, no build step.
 
 ## Local preview
