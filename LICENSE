@@ -1,0 +1,31 @@
+MIT License
+
+Copyright (c) 2026 Xuezhou Wang
+
+Scope: this license covers the site's code and template only — the
+HTML structure/markup, CSS (assets/css/style.css), and JavaScript
+(assets/js/main.js). It does not cover personal content embedded in
+the HTML files, including but not limited to biographical text,
+publication/talk/news/research entries and any other written content,
+and the image files under images/ (e.g. photo.png) and any other
+figures. That content remains (c) Xuezhou Wang, all rights reserved —
+see the "License" section of README.md for details.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

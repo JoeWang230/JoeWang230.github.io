@@ -52,3 +52,10 @@ Edit the `<ol class="pub-list">` in `publications.html`. Copy an existing `<li c
 ## Adding a talk
 
 Edit the `<ul class="talk-list">` in `talks.html`. Copy an existing `<li class="talk-item">` and update the year, type badge, title, and venue.
+
+## License
+
+This repository uses a split license:
+
+- **Code and template** — the HTML structure/markup, `assets/css/style.css`, and `assets/js/main.js` — are [MIT licensed](LICENSE). Fork it, strip out my content, and reuse the template freely.
+- **Personal content** — biographical text, the publication/talk/news/research entries, and the images under `images/` (including `photo.png`) — is © Xuezhou Wang, all rights reserved. It is not licensed for reuse; please don't republish it as your own.
