@@ -33,7 +33,7 @@ Shared assets:
 
 - `style.css` — all styles. Design tokens (colors, fonts, spacing, max-width) are CSS custom properties on `:root`. Layout uses CSS Grid throughout; responsive breakpoint is at 680 px.
 - `main.js` — one IIFE that marks the nav link matching the current page (`window.location.pathname`) as `.active`; `news-*.html` article pages map back to the `news.html` nav link.
-- `photo.png` — profile photo used in the About section (`<img src="photo.png">`).
+- `images/photo.png` — profile photo used in the About section (`<img src="images/photo.png">`). Other loose image assets also live under `images/`.
 
 Every page footer includes a GoatCounter tracking snippet (`data-goatcounter="https://xuezhouw.goatcounter.com/count"`) and a site-wide visit-count badge (`.visit-count` img, `/counter/TOTAL.svg`).
 
